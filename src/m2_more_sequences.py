@@ -106,6 +106,13 @@ def shortest_string(strings):
     # TODO: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+    length = len(strings[0])
+    index = 0
+    for k in range(1, len(strings)):
+        if len(strings[k]) < length:
+            length = len(strings[k])
+            index = k
+    return strings[index]
 
 
 def run_test_index_of_largest_number():
@@ -183,7 +190,13 @@ def index_of_largest_number(numbers, n):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    index = 0
+    max_num = numbers[0]
+    for k in range(1, n):
+        if numbers[k] > max_num:
+            max_num = numbers[k]
+            index = k
+    return index
 
 # ----------------------------------------------------------------------
 # Some problems iterate (loop) through the sequence accessing TWO
@@ -238,7 +251,11 @@ def number_of_stutters(s):
     # TODO: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    count = 0
+    for k in range(len(s) - 1):
+        if s[k] == s[k + 1]:
+            count = count + 1
+    return count
 
 def run_test_is_palindrome():
     """ Tests the   is_palindrome   function. """
@@ -317,7 +334,12 @@ def is_palindrome(s):
     #   above are particularly good examples to work by hand.
     ####################################################################
     # ------------------------------------------------------------------
-
+    for k in range(len(s)):
+        if s[k] == s[len(s) - k - 1]:
+            continue
+        else:
+            return False
+    return True
 
 # ----------------------------------------------------------------------
 # Some problems loop (iterate) through two or more sequences
@@ -378,7 +400,11 @@ def count_same(sequence1, sequence2):
     # TODO: 6. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    count = 0
+    for k in range(len(sequence1)):
+        if sequence1[k] == sequence2[k]:
+            count = count + 1
+    return count
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

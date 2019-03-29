@@ -175,7 +175,12 @@ def RETURN_circle(circle, color):
     #          (using the above code for testing).
     #
     # HINT: Use the   clone   method to make the copy.
+    center = circle.center
+    radius = circle.radius
 
+    new_circle = rg.Circle(center, radius)
+    new_circle.fill_color = color
+    return new_circle
 
 def run_test_MUTATE_circle():
     """ Tests the   MUTATE_circle   function. """
@@ -306,8 +311,8 @@ def MUTATE_circle(circle, color, n):
     #          Then, IMPLEMENT and test THIS FUNCTION
     #          (using the above code for testing).
     # HINT: This function can be implemented with just TWO lines of code.
-
-
+    circle.center.x = circle.center.x + n
+    circle.fill_color = color
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
